@@ -1,31 +1,43 @@
 ﻿using System.Globalization;
-using System.Numerics;
-using Dunveler.Resources;
 using Raylib_cs;
+using static Raylib_cs.Raylib;
 
 namespace Dunveler;
 
-class Game
+internal static class Game
 {
+    public static int screenWidth = GetScreenWidth();
+    public static int screenHeight = GetScreenHeight();
+
     public static void Main()
     {
-        Resources.Resources.Culture = CultureInfo.GetCultureInfo("ru");
-        Raylib.InitWindow(800, 480, "Dunveler - " + Resources.Resources.splashText);
-        Raylib.SetTargetFPS(60);
-        //Raylib.SetWindowIcon(icon);
+        Resources.Resources.Culture = CultureInfo.GetCultureInfo("en");
+        Image img = LoadImageFromMemory(".png", Resources.Resources.dunveler_icon);
 
-        Font font = Raylib.LoadFont("Resources/Fonts/pixelcyr_normal.ttf");
+        InitWindow(screenWidth, screenHeight, $"Dunveler - {Resources.Resources.splashText}");
+        SetTargetFPS(60);
+        DisableCursor();
+        SetWindowIcon(img);
+        SetExitKey(KeyboardKey.Escape);
+        ToggleFullscreen();
+        SetConfigFlags(ConfigFlags.VSyncHint);
 
-        while (!Raylib.WindowShouldClose())
+        Player.PlayerCameraStart();
+        Labyrinth.StartLabyrinth();
+
+        while (!WindowShouldClose())
         {
-            Raylib.BeginDrawing();
-            Raylib.ClearBackground(Color.SkyBlue);
+            BeginDrawing();
+            Labyrinth.DrawLabyrinth();
 
-            Raylib.DrawTextEx(font, Resources.Resources.helloWorldText, new Vector2(10,10), 40, 10, Color.White);
+            Player.PlayerCamera();
+            Player.Controls();
 
-            Raylib.EndDrawing();
+            DrawFPS(10, 10);
+            EndDrawing();
         }
 
-        Raylib.CloseWindow();
+        Labyrinth.UnloadLabrinth();
+        CloseWindow();
     }
 }
