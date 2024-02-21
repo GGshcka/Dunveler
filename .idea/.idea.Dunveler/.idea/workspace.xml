@@ -8,15 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da60f60c-2419-4104-bc8e-76ca00680737" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Dunveler/Labyrinth.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dunveler/Player.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dunveler/Rlights.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dunveler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dunveler/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dunveler.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Dunveler.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dunveler/Dunveler.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Dunveler/Dunveler.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dunveler/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Dunveler/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dunveler/Resources/Resources.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Dunveler/Resources/Resources.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dunveler/Resources/Resources.resx" beforeDir="false" afterPath="$PROJECT_DIR$/Dunveler/Resources/Resources.resx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +21,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/zorin/Documents/Files/Programing/RiderProjects/Dunveler/Dunveler/Game.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/zorin/Documents/Files/Programing/RiderProjects/Dunveler/Dunveler/Resources/Resources.Designer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -93,7 +91,8 @@
       <workItem from="1708369033412" duration="5730000" />
       <workItem from="1708408957862" duration="19342000" />
       <workItem from="1708542159741" duration="717000" />
-      <workItem from="1708543318101" duration="2189000" />
+      <workItem from="1708543318101" duration="2602000" />
+      <workItem from="1708546689719" duration="323000" />
     </task>
     <task id="LOCAL-00001" summary="First">
       <option name="closed" value="true" />
@@ -103,17 +102,37 @@
       <option name="project" value="LOCAL" />
       <updated>1708337623847</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fuck">
+      <option name="closed" value="true" />
+      <created>1708546396492</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1708546396492</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="First" />
-    <option name="LAST_COMMIT_MESSAGE" value="First" />
+    <MESSAGE value="Fuck" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fuck" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

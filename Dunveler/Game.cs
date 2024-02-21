@@ -19,8 +19,8 @@ internal static class Game
         DisableCursor();
         SetWindowIcon(img);
         SetExitKey(KeyboardKey.Escape);
-        ToggleFullscreen();
         SetConfigFlags(ConfigFlags.VSyncHint);
+        ToggleFullscreen();
 
         Player.PlayerCameraStart();
         Labyrinth.StartLabyrinth();
