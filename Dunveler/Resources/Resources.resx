@@ -124,7 +124,19 @@
     <value>Hello, world!</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="dunveler_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="dunvelerIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Icons\dunveler_icon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cubemap_atlas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>СubemapLevels\cubemap_atlas.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pixelcyr_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Fonts\pixelcyr_normal.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cubemap_lvl0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>СubemapLevels\cubemap_lvl0.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cubemap_lvlMaze" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>СubemapLevels\cubemap_lvlMaze.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

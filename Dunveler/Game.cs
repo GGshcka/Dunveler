@@ -12,7 +12,7 @@ internal static class Game
     public static void Main()
     {
         Resources.Resources.Culture = CultureInfo.GetCultureInfo("en");
-        Image img = LoadImageFromMemory(".png", Resources.Resources.dunveler_icon);
+        Image img = LoadImageFromMemory(".png", Resources.Resources.dunvelerIcon);
 
         InitWindow(screenWidth, screenHeight, $"Dunveler - {Resources.Resources.splashText}");
         SetTargetFPS(60);
@@ -22,22 +22,23 @@ internal static class Game
         SetConfigFlags(ConfigFlags.VSyncHint);
         ToggleFullscreen();
 
-        Player.PlayerCameraStart();
-        Labyrinth.StartLabyrinth();
+        Player.CameraStart();
+        Labyrinth.Start();
 
         while (!WindowShouldClose())
         {
             BeginDrawing();
-            Labyrinth.DrawLabyrinth();
+            Labyrinth.Draw();
 
-            Player.PlayerCamera();
+            Player.CameraUpdater();
             Player.Controls();
 
-            DrawFPS(10, 10);
+            DebugInfo.Draw();
+
             EndDrawing();
         }
 
-        Labyrinth.UnloadLabrinth();
+        Labyrinth.Unloading();
         CloseWindow();
     }
 }

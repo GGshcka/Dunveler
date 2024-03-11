@@ -63,9 +63,39 @@ namespace Dunveler.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] dunveler_icon {
+        internal static byte[] cubemap_atlas {
             get {
-                object obj = ResourceManager.GetObject("dunveler_icon", resourceCulture);
+                object obj = ResourceManager.GetObject("cubemap_atlas", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] cubemap_lvl0 {
+            get {
+                object obj = ResourceManager.GetObject("cubemap_lvl0", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] cubemap_lvlMaze {
+            get {
+                object obj = ResourceManager.GetObject("cubemap_lvlMaze", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] dunvelerIcon {
+            get {
+                object obj = ResourceManager.GetObject("dunvelerIcon", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -76,6 +106,16 @@ namespace Dunveler.Resources {
         internal static string helloWorldText {
             get {
                 return ResourceManager.GetString("helloWorldText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] pixelcyr_normal {
+            get {
+                object obj = ResourceManager.GetObject("pixelcyr_normal", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

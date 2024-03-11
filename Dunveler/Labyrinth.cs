@@ -1,67 +1,52 @@
 using System.Numerics;
 using Raylib_cs;
 using static Raylib_cs.Raylib;
+using System.ComponentModel;
+using System.Reflection;
 
 namespace Dunveler;
 
-public class Labyrinth
+public static unsafe class Labyrinth
 {
-    const int GLSL_VERSION = 330;
+    public static Model model;
+    public static Texture2D cubicmap, texture;
+    public static unsafe Color* mapPixels;
+    public static Vector3 mapPosition;
 
-    static Model cube = LoadModelFromMesh(GenMeshCube(-10.0f, -10.0f, -10.0f));
-    static Shader lightShader = LoadShader(
-        "resources/shaders/glsl330/lighting.vs",
-        "resources/shaders/glsl330/lighting.fs"
-    );
-    static Light[] lights = new Light[1];
-
-    public static unsafe void StartLabyrinth()
+    public static void Start()
     {
-        // Get some required shader loactions
-        lightShader.Locs[(int)ShaderLocationIndex.VectorView] = GetShaderLocation(lightShader, "viewPos");
+        Image imMap = LoadImageFromMemory(".png", Resources.Resources.cubemap_lvlMaze);
+        Image imAtlasMap = LoadImageFromMemory(".png", Resources.Resources.cubemap_atlas);
 
-        // ambient light level
-        int ambientLoc = GetShaderLocation(lightShader, "ambient");
-        float[] ambient = new[] { 0.1f, 0.1f, 0.1f, 1.0f };
-        SetShaderValue(lightShader, ambientLoc, ambient, ShaderUniformDataType.Vec4);
+        cubicmap = LoadTextureFromImage(imMap);
+        Mesh mesh = GenMeshCubicmap(imMap, new Vector3( 1.0f, 1.0f, 1.0f ));
+        model = LoadModelFromMesh(mesh);
 
-        cube.Materials[0].Shader = lightShader;
+        texture = LoadTextureFromImage(imAtlasMap);
 
-        lights[0] = Rlights.CreateLight(
-            0,
-            LightType.Point,
-            new Vector3(5, 9, 5),
-            new Vector3(5, 9, 5),
-            Color.Yellow,
-            lightShader
-        );
+        SetMaterialTexture(ref model, 0, MaterialMapIndex.Albedo, ref texture);
+
+        mapPixels = LoadImageColors(imMap);
+        UnloadImage(imMap);
+
+        mapPosition = new Vector3(-1f, 0.0f, -3f);
     }
 
-    public static unsafe void DrawLabyrinth()
+    public static void Draw()
     {
-        Rlights.UpdateLightValues(lightShader, lights[0]);
+        ClearBackground(Color.White);
+        BeginMode3D(Player.Camera);
 
-        // Update the light shader with the camera view position
-        SetShaderValue(
-            lightShader,
-            lightShader.Locs[(int)ShaderLocationIndex.VectorView],
-            Player.camera.Position,
-            ShaderUniformDataType.Vec3
-        );
-
-        ClearBackground(Color.Black);
-
-        BeginMode3D(Player.camera);
-
-        DrawSphereEx(lights[0].position, 0.2f, 8, 8, lights[0].color);
-        DrawModel(cube, new Vector3(5, 9, 5), 1.0f, Color.White);
+        DrawModel(model, mapPosition, 1.0f, Color.White);
 
         EndMode3D();
     }
 
-    public static void UnloadLabrinth()
+    public static void Unloading()
     {
-        UnloadModel(cube);
-        UnloadShader(lightShader);
+        UnloadImageColors(mapPixels);
+        UnloadTexture(cubicmap);
+        UnloadTexture(texture);
+        UnloadModel(model);
     }
 }
