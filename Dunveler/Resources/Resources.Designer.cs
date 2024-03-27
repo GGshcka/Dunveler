@@ -63,9 +63,9 @@ namespace Dunveler.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] cubemap_atlas {
+        internal static byte[] backrooms_atlas {
             get {
-                object obj = ResourceManager.GetObject("cubemap_atlas", resourceCulture);
+                object obj = ResourceManager.GetObject("backrooms_atlas", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Dunveler.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] cubemap_lvl0 {
+        internal static byte[] clock {
             get {
-                object obj = ResourceManager.GetObject("cubemap_lvl0", resourceCulture);
+                object obj = ResourceManager.GetObject("clock", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Dunveler.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] cubemap_lvlMaze {
+        internal static byte[] dungeon_atlas {
             get {
-                object obj = ResourceManager.GetObject("cubemap_lvlMaze", resourceCulture);
+                object obj = ResourceManager.GetObject("dungeon_atlas", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Dunveler.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] dunvelerIcon {
+        internal static byte[] dunveler_icon {
             get {
-                object obj = ResourceManager.GetObject("dunvelerIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("dunveler_icon", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -110,12 +110,106 @@ namespace Dunveler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Interface scale: .
+        /// </summary>
+        internal static string interfaceScaleText {
+            get {
+                return ResourceManager.GetString("interfaceScaleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] interworld_atlas {
+            get {
+                object obj = ResourceManager.GetObject("interworld_atlas", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXIT.
+        /// </summary>
+        internal static string mainMenuButtonExit {
+            get {
+                return ResourceManager.GetString("mainMenuButtonExit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to START.
+        /// </summary>
+        internal static string mainMenuButtonPlay {
+            get {
+                return ResourceManager.GetString("mainMenuButtonPlay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MAIN MENU.
+        /// </summary>
+        internal static string mainMenuButtonReturnToMenu {
+            get {
+                return ResourceManager.GetString("mainMenuButtonReturnToMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SETTINGS.
+        /// </summary>
+        internal static string mainMenuButtonSettings {
+            get {
+                return ResourceManager.GetString("mainMenuButtonSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] midasplace_atlas {
+            get {
+                object obj = ResourceManager.GetObject("midasplace_atlas", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] mossy_atlas {
+            get {
+                object obj = ResourceManager.GetObject("mossy_atlas", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] pixelcyr_normal {
             get {
                 object obj = ResourceManager.GetObject("pixelcyr_normal", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] pointerImg {
+            get {
+                object obj = ResourceManager.GetObject("pointerImg", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BACK.
+        /// </summary>
+        internal static string settingsButtonBack {
+            get {
+                return ResourceManager.GetString("settingsButtonBack", resourceCulture);
             }
         }
         

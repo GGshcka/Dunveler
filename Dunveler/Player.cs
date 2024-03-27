@@ -2,29 +2,38 @@ using System.Diagnostics;
 using System.Numerics;
 using Raylib_cs;
 using static Raylib_cs.Raylib;
+using static Dunveler.Resources.Resources;
+using static Dunveler.Game;
 
 namespace Dunveler;
 
 public static unsafe class Player
 {
     private static bool cur = false;
+    public static bool noclip = false;
 
-    public static Camera3D Camera = new Camera3D();
+    public static Camera3D Camera = new();
 
     internal static float Sens = 0.15f; //Сенса для мыши от 0.01 до 1;
     internal static float Speed; //Скорость перемещения;
 
-    private static readonly Vector2 CenterScreen = new Vector2(GetScreenWidth() / 2, GetScreenHeight() / 2);
-    private static readonly Vector2 CenterScreenPlus7 = new Vector2(GetScreenWidth() / 2 + 7, GetScreenHeight() / 2 + 7);
-    private static readonly Vector2 CenterScreenPlusMinus7 = new Vector2(GetScreenWidth() / 2 - 7, GetScreenHeight() / 2 + 7);
-    private static readonly int ThickCur = 3;
+    static Random randEnv = new();
+    static Sound[] stepSounds = { 
+        LoadSound("Resources\\Sounds\\stepdirt_1.wav"),
+        LoadSound("Resources\\Sounds\\stepdirt_2.wav"),
+        LoadSound("Resources\\Sounds\\stepdirt_3.wav")
+    };
+
+    //static Image pointer = LoadImageFromMemory(".png", pointerImg);
+
+    //private static readonly int ThickCur = 3;
 
     public static void CameraStart()
     {
-        Camera.Position = new Vector3(0f, -.2f, 0f); // Camera position
-        Camera.Target = new Vector3(1.0f, -.2f, 0.0f);      // Camera looking at point
-        Camera.Up = new Vector3(.0f, 1.0f, .0f);          // Camera up vector (rotation towards target)
-        Camera.FovY = 65.0f;                                // Camera field-of-view Y
+        Camera.Position = new Vector3(0f, 0f, 0f); // Camera position
+        Camera.Target = new Vector3(1f, 0f, 0f); // Camera looking at point
+        Camera.Up = new Vector3(.0f, 1.0f, .0f); // Camera up vector (rotation towards target)
+        Camera.FovY = 65.0f; // Camera field-of-view Y
         Camera.Projection = CameraProjection.Perspective;
 
         CameraYaw(ref Camera, -135 * DEG2RAD, true);
@@ -48,13 +57,10 @@ public static unsafe class Player
                     GetMouseDelta().Y*Sens,
                     0.0f),
                 0.0f);
-
-            DrawLineEx(CenterScreenPlus7, CenterScreen, ThickCur, Color.White);
-            DrawLineEx(CenterScreenPlusMinus7, CenterScreen, ThickCur, Color.White);
         }
 
         // Check player collision (we simplify to 2D collision detection)
-        Vector2 playerPos = new Vector2(Camera.Position.X, Camera.Position.Z);
+        Vector2 playerPos = new(Camera.Position.X, Camera.Position.Z);
         float playerRadius = 0.1f;  // Collision radius (player is modelled as a cilinder for collision)
 
         int playerCellX = (int)(playerPos.X - Labyrinth.mapPosition.X + 0.5f);
@@ -69,39 +75,49 @@ public static unsafe class Player
 
         // Check map collisions using image data and player position
         // TODO: Improvement: Just check player surrounding cells for collision
-        for (int y = 0; y < Labyrinth.cubicmap.Height; y++)
+        if (noclip == false)
         {
-            for (int x = 0; x < Labyrinth.cubicmap.Height; x++)
+            for (int y = 0; y < Labyrinth.cubicmap.Height; y++)
             {
-                if ((Labyrinth.mapPixels[y * Labyrinth.cubicmap.Width + x].R == 255) &&
-                    (Labyrinth.mapPixels[y * Labyrinth.cubicmap.Width + x].G == 255) &&
-                    (Labyrinth.mapPixels[y * Labyrinth.cubicmap.Width + x].B == 255) &&
-                    (CheckCollisionCircleRec(playerPos, playerRadius,
-                    new Rectangle(Labyrinth.mapPosition.X - 0.5f + x * 1.0f, Labyrinth.mapPosition.Z - 0.5f + y * 1.0f, 1.0f, 1.0f ))))
+                for (int x = 0; x < Labyrinth.cubicmap.Height; x++)
                 {
-                    // Collision detected, reset camera position
-                    Camera.Position = oldCamPos;
+                    if ((Labyrinth.mapPixels[y * Labyrinth.cubicmap.Width + x].R == 255) &&
+                        (Labyrinth.mapPixels[y * Labyrinth.cubicmap.Width + x].G == 255) &&
+                        (Labyrinth.mapPixels[y * Labyrinth.cubicmap.Width + x].B == 255) &&
+                        (CheckCollisionCircleRec(playerPos, playerRadius,
+                        new Rectangle(Labyrinth.mapPosition.X - 0.5f + x * 1.0f, Labyrinth.mapPosition.Z - 0.5f + y * 1.0f, 1.0f, 1.0f))))
+                    {
+                        // Collision detected, reset camera position
+                        Camera.Position = oldCamPos;
+                    }
                 }
+            }
+
+            if (CheckCollisionCircleRec(playerPos, playerRadius, new Rectangle(Labyrinth.exitPosition.X, Labyrinth.exitPosition.Z, Labyrinth.exitSize, Labyrinth.exitSize)))
+            {
+                currentScreen = GameScreen.Results;
             }
         }
     }
 
-    internal static bool InfoDraw = false;
+    internal static bool DebugInfoDraw = false;
+    static int framesCounter = 0;
 
     public static void Controls()
     {
-        if (IsKeyPressed(KeyboardKey.Tab))
+        if (IsKeyPressed(KeyboardKey.Escape))
         {
-            if (cur == false)
-            {
-                EnableCursor();
-                cur = true;
-            }
-            else
-            {
-                DisableCursor();
-                cur = false;
-            }
+            cur = !cur;
+            if (cur == true) EnableCursor(); 
+            else DisableCursor(); 
+        }
+
+        if (IsKeyDown(KeyboardKey.W) || IsKeyDown(KeyboardKey.S) || IsKeyDown(KeyboardKey.A) || IsKeyDown(KeyboardKey.D))
+        {
+            framesCounter++;
+
+            if (framesCounter == 1) PlaySound(stepSounds[randEnv.Next(3)]);
+            if (framesCounter > (GetFPS() / (Speed*100))) framesCounter = 0;
         }
 
         if (IsKeyPressed(KeyboardKey.U))
@@ -116,8 +132,11 @@ public static unsafe class Player
             Camera.Target.Y -= 0.1f;
         }
 
-        if (IsKeyPressed(KeyboardKey.F3)) InfoDraw = !InfoDraw;
+        if (IsKeyPressed(KeyboardKey.F3)) DebugInfoDraw = !DebugInfoDraw;
+        if (IsKeyPressed(KeyboardKey.N)) noclip = !noclip;
 
-        Speed = IsKeyDown(KeyboardKey.LeftShift) ? 0.08f : 0.04f;
+        if (IsKeyPressed(KeyboardKey.End)) { currentScreen = GameScreen.Results; }
+
+        Speed = IsKeyDown(KeyboardKey.LeftShift) ? 0.04f : 0.02f;
     }
 }

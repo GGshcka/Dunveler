@@ -124,19 +124,49 @@
     <value>Hello, world!</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="dunvelerIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Icons\dunveler_icon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="cubemap_atlas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>СubemapLevels\cubemap_atlas.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="pixelcyr_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Fonts\pixelcyr_normal.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="cubemap_lvl0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>СubemapLevels\cubemap_lvl0.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="clock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Icons\clock.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="cubemap_lvlMaze" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>СubemapLevels\cubemap_lvlMaze.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="dungeon_atlas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>СubemapAtlas\dungeon_atlas.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dunveler_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Icons\dunveler_icon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="interworld_atlas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>СubemapAtlas\interworld_atlas.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mainMenuButtonExit" xml:space="preserve">
+    <value>EXIT</value>
+  </data>
+  <data name="mainMenuButtonPlay" xml:space="preserve">
+    <value>START</value>
+  </data>
+  <data name="mainMenuButtonSettings" xml:space="preserve">
+    <value>SETTINGS</value>
+  </data>
+  <data name="midasplace_atlas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>СubemapAtlas\midasplace_atlas.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mossy_atlas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>СubemapAtlas\mossy_atlas.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pointerImg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>pointerImg.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="backrooms_atlas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>СubemapAtlas\backrooms_atlas.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mainMenuButtonReturnToMenu" xml:space="preserve">
+    <value>MAIN MENU</value>
+  </data>
+  <data name="interfaceScaleText" xml:space="preserve">
+    <value>Interface scale: </value>
+  </data>
+  <data name="settingsButtonBack" xml:space="preserve">
+    <value>BACK</value>
   </data>
 </root>
