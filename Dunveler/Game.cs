@@ -15,9 +15,12 @@ internal static class Game
     public enum GameScreen { Logo = 0, MainMenu, Gameplay, Results }
     public static GameScreen currentScreen = GameScreen.Logo;
 
-    public static bool exitWindow = false, drawSettings = false;
+    public static bool exitWindow = false, drawSettings = false, drawDifficulty = false;
 
-    public static Image icon = LoadImageFromMemory(".png", dunveler_icon);
+    public static Image icon = LoadImageFromMemory(".png", dunveler_icon), logoText = LoadImageFromMemory(".png", dunveler_logo_text), logoTextShadow = LoadImageFromMemory(".png", dunveler_logo_textshadow);
+    public static Texture2D iconTexture, logoTextTexture, logoTextShadowTexture;
+
+    public static string currentDifficult;
 
     public static unsafe void Main()
     {
@@ -32,8 +35,13 @@ internal static class Game
         SetConfigFlags(ConfigFlags.VSyncHint);
         ToggleFullscreen();
 
-        Texture2D iconTexture = LoadTextureFromImage(icon);
+        iconTexture = LoadTextureFromImage(icon);
+        logoTextTexture = LoadTextureFromImage(logoText);
+        logoTextShadowTexture = LoadTextureFromImage(logoTextShadow);
 
+        Leaderboard.Get();
+        Leaderboard.UserControler("get");
+        MainMenu.StyleTaker();
         UI.Start();
 
         GameScreen previousGameScreen = GameScreen.Logo;
@@ -57,7 +65,9 @@ internal static class Game
                 case GameScreen.MainMenu:
                     if (previousGameScreen != currentScreen)
                     {
+                        MainMenu.StyleTaker();
                         if (IsCursorHidden() == true) EnableCursor();
+                        Difficulty.readyToUse = false;
                         previousGameScreen = GameScreen.MainMenu;
                     }
                     break;
@@ -66,6 +76,7 @@ internal static class Game
                     if (previousGameScreen != currentScreen)
                     {
                         DisableCursor();
+                        Info.Start();
                         Labyrinth.TimerClear();
                         LabyrinthGenerator.Generate();
                         Labyrinth.Start(LabyrinthGenerator.DrawMaze());
@@ -78,6 +89,7 @@ internal static class Game
                     if (previousGameScreen != currentScreen)
                     {
                         if (IsCursorHidden() == true) EnableCursor();
+                        Leaderboard.Rewrite(currentDifficult);
                         previousGameScreen = GameScreen.Results;
                     }
                     break;
@@ -95,7 +107,9 @@ internal static class Game
                     break;
 
                 case GameScreen.MainMenu:
+                    ClearBackground(Color.Black);
                     MainMenu.Draw();
+                    if (drawDifficulty == true) Difficulty.Draw();
                     break;
 
                 case GameScreen.Gameplay:
@@ -103,7 +117,8 @@ internal static class Game
                     Labyrinth.Timer();
                     Player.CameraUpdater();
                     Player.Controls();
-                    Info.Draw();
+                    if (Player.InfoDraw == true) Info.Draw();
+                    Pause.Draw();
                     break;
 
                 case GameScreen.Results:
@@ -112,10 +127,7 @@ internal static class Game
                     break;
             }
 
-            if (drawSettings == true) 
-            {
-                Settings.Draw();
-            }
+            if (drawSettings == true) Settings.Draw();
 
             EndDrawing();
         }

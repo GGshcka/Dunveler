@@ -10,8 +10,21 @@ namespace Dunveler;
 public static class Info
 {
     private static readonly Color InfoColor = Color.Green;
-    public static Image imgClock = LoadImageFromMemory(".png", clock);
-    public static Texture2D imgClockTexture = LoadTextureFromImage(imgClock);
+    public static Image imgClock;
+    public static Texture2D imgClockTexture;
+
+    public static void Start()
+    {
+        byte[][] clocks =
+        {
+            clock_easy,
+            clock_medium,
+            clock_hard
+        };
+        imgClock = LoadImageFromMemory(".png", clocks[Difficulty.difficultIndex]);
+        imgClockTexture = LoadTextureFromImage(imgClock);
+        UnloadImage(imgClock);
+    }
 
     public static void Draw()
     {
@@ -40,6 +53,6 @@ public static class Info
         }
 
         DrawTextureEx(imgClockTexture, new Vector2(GetScreenWidth() / 2 - (imgClock.Width/2 * (scale*2.5f)), -imgClock.Height * scale), 0, scale*2.5f, Color.LightGray);
-        Raylib_CsLo.Raylib.DrawTextEx(font, Labyrinth.TimerText, new Vector2(GetScreenWidth() / 2 - ((16 * (int)scale * 2)), 8), (10 * (int)scale * 2), 1, Raylib_CsLo.Raylib.WHITE);
+        ZeroElectric.Vinculum.Raylib.DrawTextEx(font, Labyrinth.TimerText, new Vector2(GetScreenWidth() / 2 - ((16 * (int)scale * 2)), 8), (10 * (int)scale * 2), 1, ZeroElectric.Vinculum.Raylib.WHITE);
     }
 }

@@ -1,7 +1,7 @@
 ﻿using static Dunveler.UI;
-using Raylib_CsLo;
-using static Raylib_CsLo.RayGui;
-using static Raylib_CsLo.Raylib;
+using ZeroElectric.Vinculum;
+using static ZeroElectric.Vinculum.RayGui;
+using static ZeroElectric.Vinculum.Raylib;
 using static Dunveler.Resources.Resources;
 using static Dunveler.Game;
 using System.Diagnostics;
@@ -10,36 +10,22 @@ namespace Dunveler
 {
     internal unsafe class Settings
     {
+        static int scaleTemp = scale;
+
         public static void Draw()
         {
-            if (GuiButton(new Rectangle(20, 20, btnSize50, btnSize25), settingsButtonBack))
+            if (GuiButton(new Rectangle(10, GetScreenHeight() - 10 - btnSize25, btnX - 20, btnSize25), settingsButtonBackAndApply) == 1)
             {
                 drawSettings = false;
+                scale = scaleTemp;
+                GameSettings.Default.UIScale = scale;
+                GameSettings.Default.Save();
+                LoadGuiStyleAndSize();
             }
 
-            if (GuiButton(new Rectangle(20, 20 + btnSize25 + spacebetween, btnSize25, btnSize25), "<"))
-            {
-                if (scale > 1)
-                {
-                    scale--;
-                    GameSettings.Default.UIScale = scale;
-                    GameSettings.Default.Save();
-                    LoadGuiStyleAndSize();
-                }
-            }
+            GuiLabel(new Rectangle(10, 0, btnSize125*2, btnSize25), interfaceScaleSettingsNameText);
 
-            GuiLabel(new Rectangle(20 + btnSize25 + spacebetween + (spacebetween/2), 20 + btnSize25 + spacebetween, btnSize25, btnSize25), $"{scale}");
-
-            if (GuiButton(new Rectangle(20 + (btnSize25 * 2) + spacebetween, 20 + btnSize25 + spacebetween, btnSize25, btnSize25), ">"))
-            {
-                if (scale < 3)
-                {
-                    scale++;
-                    GameSettings.Default.UIScale = scale;
-                    GameSettings.Default.Save();
-                    LoadGuiStyleAndSize();
-                }
-            }
+            GuiSpinner(new Rectangle(10, btnSize25, btnX - 20, btnSize25), null, ref scaleTemp, 1, 3, false);
         }
     }
 }

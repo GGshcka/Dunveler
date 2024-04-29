@@ -1,6 +1,6 @@
-﻿using Raylib_CsLo;
-using static Raylib_CsLo.RayGui;
-using static Raylib_CsLo.Raylib;
+﻿using ZeroElectric.Vinculum;
+using static ZeroElectric.Vinculum.RayGui;
+using static ZeroElectric.Vinculum.Raylib;
 using static Dunveler.Game;
 using static Dunveler.Resources.Resources;
 using System.Diagnostics;
@@ -19,8 +19,9 @@ namespace Dunveler
             btnSize50 = 50 * scale,
             btnSize25 = 25 * scale,
             spacebetween = 10 * scale,
-            btnX = screenPercent("Width", 15),
-            btnY = screenPercent("Height", 50);
+            btnX = 150 * scale,
+            btnY = screenPercent("Height", 50),
+            iconTextureHeight;
 
         public static unsafe void Start()
         {
@@ -49,6 +50,8 @@ namespace Dunveler
             btnSize50 = 50 * scale;
             btnSize25 = 25 * scale;
             spacebetween = 10 * scale;
+            btnX = 150 * scale;
+            iconTextureHeight = iconTexture.Height * 0.3f * scale;
         }
 
         public static float screenPercent(string direction, float percent)
@@ -62,6 +65,13 @@ namespace Dunveler
             }
 
             return 0;
+        }
+
+        public static void FullLogoDraw()
+        {
+            Raylib_cs.Raylib.DrawTextureEx(iconTexture, new System.Numerics.Vector2(btnX - btnSize125 / 2 - icon.Width * (0.1f * scale), btnY - btnY / 2 - icon.Height * (0.1f * scale)), 0, scale * 0.3f, Raylib_cs.Color.White);
+            Raylib_cs.Raylib.DrawTextureEx(logoTextShadowTexture, new System.Numerics.Vector2(btnX - btnSize125 / 2 + 3, btnY - btnY / 2 + 3), 0, scale * 2.5f, Raylib_cs.Color.White);
+            Raylib_cs.Raylib.DrawTextureEx(logoTextTexture, new System.Numerics.Vector2(btnX - btnSize125 / 2, btnY - btnY / 2), 0, scale * 2.5f, Raylib_cs.Color.White);
         }
     }
 }

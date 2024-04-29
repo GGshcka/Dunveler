@@ -12,8 +12,8 @@ namespace Dunveler
 {
     internal unsafe class LabyrinthGenerator
     {
-        public const int WIDTH = 33; // Width of the maze (must be odd).
-        public const int HEIGHT = 33; // Height of the maze (must be odd).
+        public static int WIDTH = 33; // Width of the maze (must be odd).
+        public static int HEIGHT = 33; // Height of the maze (must be odd).
 
         private static Dictionary<(int, int), bool> maze; //? true (Wall) : false (Space)
         private static List<(int, int)> hasVisited;

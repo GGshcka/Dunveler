@@ -132,7 +132,7 @@
   <data name="mainMenuButtonSettings" xml:space="preserve">
     <value>НАСТРОЙКИ</value>
   </data>
-  <data name="mainMenuButtonReturnToMenu" xml:space="preserve">
+  <data name="mainMenuButtonMainMenu" xml:space="preserve">
     <value>ГЛАВНОЕ МЕНЮ</value>
   </data>
   <data name="interfaceScaleText" xml:space="preserve">
@@ -140,5 +140,20 @@
   </data>
   <data name="settingsButtonBack" xml:space="preserve">
     <value>НАЗАД</value>
+  </data>
+  <data name="interfaceScaleSettingsNameText" xml:space="preserve">
+    <value>Размер интерфейса:</value>
+  </data>
+  <data name="mainMenuButtonResume" xml:space="preserve">
+    <value>ПРОДОЛЖИТЬ</value>
+  </data>
+  <data name="difficultyEasy" xml:space="preserve">
+    <value>ЛЕГКО</value>
+  </data>
+  <data name="difficultyHard" xml:space="preserve">
+    <value>ТЯЖЕЛО</value>
+  </data>
+  <data name="difficultyMedium" xml:space="preserve">
+    <value>СРЕДНЕ</value>
   </data>
 </root>

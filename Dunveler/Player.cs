@@ -9,7 +9,9 @@ namespace Dunveler;
 
 public static unsafe class Player
 {
-    private static bool cur = false;
+    public static string playername = Leaderboard.usernames[MainMenu.usersCount];
+
+    public static bool cur = false;
     public static bool noclip = false;
 
     public static Camera3D Camera = new();
@@ -100,43 +102,46 @@ public static unsafe class Player
         }
     }
 
-    internal static bool DebugInfoDraw = false;
+    internal static bool DebugInfoDraw = false, InfoDraw = true;
     static int framesCounter = 0;
 
     public static void Controls()
     {
         if (IsKeyPressed(KeyboardKey.Escape))
         {
-            cur = !cur;
-            if (cur == true) EnableCursor(); 
-            else DisableCursor(); 
+            if (cur = !cur == true) { EnableCursor(); Pause.isPaused = true; }
+            else { DisableCursor(); Pause.isPaused = drawSettings = false; }
         }
 
-        if (IsKeyDown(KeyboardKey.W) || IsKeyDown(KeyboardKey.S) || IsKeyDown(KeyboardKey.A) || IsKeyDown(KeyboardKey.D))
+        if (Pause.isPaused == false)
         {
-            framesCounter++;
+            if (IsKeyDown(KeyboardKey.W) || IsKeyDown(KeyboardKey.S) || IsKeyDown(KeyboardKey.A) || IsKeyDown(KeyboardKey.D))
+            {
+                framesCounter++;
 
-            if (framesCounter == 1) PlaySound(stepSounds[randEnv.Next(3)]);
-            if (framesCounter > (GetFPS() / (Speed*100))) framesCounter = 0;
+                if (framesCounter == 1) PlaySound(stepSounds[randEnv.Next(3)]);
+                if (framesCounter > (GetFPS() / (Speed * 100))) framesCounter = 0;
+            }
+
+            if (IsKeyPressed(KeyboardKey.U))
+            {
+                Camera.Position.Y += 0.1f;
+                Camera.Target.Y += 0.1f;
+            }
+
+            if (IsKeyPressed(KeyboardKey.I))
+            {
+                Camera.Position.Y -= 0.1f;
+                Camera.Target.Y -= 0.1f;
+            }
+
+            if (IsKeyPressed(KeyboardKey.F3)) DebugInfoDraw = !DebugInfoDraw;
+            if (IsKeyPressed(KeyboardKey.F1)) InfoDraw = !InfoDraw;
+            if (IsKeyPressed(KeyboardKey.N)) noclip = !noclip;
+
+            if (IsKeyPressed(KeyboardKey.End)) { currentScreen = GameScreen.Results; }
+
+            Speed = IsKeyDown(KeyboardKey.LeftShift) ? 0.04f : 0.02f;
         }
-
-        if (IsKeyPressed(KeyboardKey.U))
-        {
-            Camera.Position.Y += 0.1f;
-            Camera.Target.Y += 0.1f;
-        }
-
-        if (IsKeyPressed(KeyboardKey.I))
-        {
-            Camera.Position.Y -= 0.1f;
-            Camera.Target.Y -= 0.1f;
-        }
-
-        if (IsKeyPressed(KeyboardKey.F3)) DebugInfoDraw = !DebugInfoDraw;
-        if (IsKeyPressed(KeyboardKey.N)) noclip = !noclip;
-
-        if (IsKeyPressed(KeyboardKey.End)) { currentScreen = GameScreen.Results; }
-
-        Speed = IsKeyDown(KeyboardKey.LeftShift) ? 0.04f : 0.02f;
     }
 }

@@ -127,9 +127,6 @@
   <data name="pixelcyr_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Fonts\pixelcyr_normal.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="clock" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Icons\clock.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="dungeon_atlas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>СubemapAtlas\dungeon_atlas.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -157,10 +154,7 @@
   <data name="pointerImg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>pointerImg.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="backrooms_atlas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>СubemapAtlas\backrooms_atlas.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="mainMenuButtonReturnToMenu" xml:space="preserve">
+  <data name="mainMenuButtonMainMenu" xml:space="preserve">
     <value>MAIN MENU</value>
   </data>
   <data name="interfaceScaleText" xml:space="preserve">
@@ -168,5 +162,62 @@
   </data>
   <data name="settingsButtonBack" xml:space="preserve">
     <value>BACK</value>
+  </data>
+  <data name="interfaceScaleSettingsNameText" xml:space="preserve">
+    <value>Interface scale:</value>
+  </data>
+  <data name="vlad_atlas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>СubemapAtlas\vlad_atlas.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="backrooms_atlas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>СubemapAtlas\backrooms_atlas.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dunveler_logo_textshadow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Icons\dunveler_logo_textshadow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mainMenuButtonResume" xml:space="preserve">
+    <value>RESUME</value>
+  </data>
+  <data name="backrooms_preview_tile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>СubemapAtlas\Tiles\backrooms_preview_tile.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="clock_easy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Icons\clock_easy.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="clock_hard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Icons\clock_hard.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="clock_medium" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Icons\clock_medium.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="difficultyEasy" xml:space="preserve">
+    <value>EASY</value>
+  </data>
+  <data name="difficultyHard" xml:space="preserve">
+    <value>HARD</value>
+  </data>
+  <data name="difficultyMedium" xml:space="preserve">
+    <value>MEDIUM</value>
+  </data>
+  <data name="dungeon_preview_tile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>СubemapAtlas\Tiles\dungeon_preview_tile.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dunveler_logo_text" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Icons\dunveler_logo_text.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="interworld_preview_tile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>СubemapAtlas\Tiles\interworld_preview_tile.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="midasplace_preview_tile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>СubemapAtlas\Tiles\midasplace_preview_tile.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mossy_preview_tile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>СubemapAtlas\Tiles\mossy_preview_tile.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="vlad_preview_tile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>СubemapAtlas\Tiles\vlad_preview_tile.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="settingsButtonBackAndApply" xml:space="preserve">
+    <value>BACK &amp; APPLY</value>
   </data>
 </root>

@@ -73,10 +73,67 @@ namespace Dunveler.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] clock {
+        internal static byte[] backrooms_preview_tile {
             get {
-                object obj = ResourceManager.GetObject("clock", resourceCulture);
+                object obj = ResourceManager.GetObject("backrooms_preview_tile", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] clock_easy {
+            get {
+                object obj = ResourceManager.GetObject("clock_easy", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] clock_hard {
+            get {
+                object obj = ResourceManager.GetObject("clock_hard", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] clock_medium {
+            get {
+                object obj = ResourceManager.GetObject("clock_medium", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EASY.
+        /// </summary>
+        internal static string difficultyEasy {
+            get {
+                return ResourceManager.GetString("difficultyEasy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HARD.
+        /// </summary>
+        internal static string difficultyHard {
+            get {
+                return ResourceManager.GetString("difficultyHard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MEDIUM.
+        /// </summary>
+        internal static string difficultyMedium {
+            get {
+                return ResourceManager.GetString("difficultyMedium", resourceCulture);
             }
         }
         
@@ -93,9 +150,39 @@ namespace Dunveler.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] dungeon_preview_tile {
+            get {
+                object obj = ResourceManager.GetObject("dungeon_preview_tile", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] dunveler_icon {
             get {
                 object obj = ResourceManager.GetObject("dunveler_icon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] dunveler_logo_text {
+            get {
+                object obj = ResourceManager.GetObject("dunveler_logo_text", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] dunveler_logo_textshadow {
+            get {
+                object obj = ResourceManager.GetObject("dunveler_logo_textshadow", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -106,6 +193,15 @@ namespace Dunveler.Resources {
         internal static string helloWorldText {
             get {
                 return ResourceManager.GetString("helloWorldText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Interface scale:.
+        /// </summary>
+        internal static string interfaceScaleSettingsNameText {
+            get {
+                return ResourceManager.GetString("interfaceScaleSettingsNameText", resourceCulture);
             }
         }
         
@@ -129,11 +225,30 @@ namespace Dunveler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] interworld_preview_tile {
+            get {
+                object obj = ResourceManager.GetObject("interworld_preview_tile", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to EXIT.
         /// </summary>
         internal static string mainMenuButtonExit {
             get {
                 return ResourceManager.GetString("mainMenuButtonExit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MAIN MENU.
+        /// </summary>
+        internal static string mainMenuButtonMainMenu {
+            get {
+                return ResourceManager.GetString("mainMenuButtonMainMenu", resourceCulture);
             }
         }
         
@@ -147,11 +262,11 @@ namespace Dunveler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MAIN MENU.
+        ///   Looks up a localized string similar to RESUME.
         /// </summary>
-        internal static string mainMenuButtonReturnToMenu {
+        internal static string mainMenuButtonResume {
             get {
-                return ResourceManager.GetString("mainMenuButtonReturnToMenu", resourceCulture);
+                return ResourceManager.GetString("mainMenuButtonResume", resourceCulture);
             }
         }
         
@@ -177,9 +292,29 @@ namespace Dunveler.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] midasplace_preview_tile {
+            get {
+                object obj = ResourceManager.GetObject("midasplace_preview_tile", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] mossy_atlas {
             get {
                 object obj = ResourceManager.GetObject("mossy_atlas", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] mossy_preview_tile {
+            get {
+                object obj = ResourceManager.GetObject("mossy_preview_tile", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -214,11 +349,40 @@ namespace Dunveler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to BACK &amp; APPLY.
+        /// </summary>
+        internal static string settingsButtonBackAndApply {
+            get {
+                return ResourceManager.GetString("settingsButtonBackAndApply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to this is just the beginning....
         /// </summary>
         internal static string splashText {
             get {
                 return ResourceManager.GetString("splashText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] vlad_atlas {
+            get {
+                object obj = ResourceManager.GetObject("vlad_atlas", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] vlad_preview_tile {
+            get {
+                object obj = ResourceManager.GetObject("vlad_preview_tile", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

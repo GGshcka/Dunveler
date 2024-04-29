@@ -1,6 +1,7 @@
 using System.Numerics;
 using Raylib_cs;
 using static Raylib_cs.Raylib;
+using static Dunveler.MainMenu;
 using static Dunveler.Resources.Resources;
 
 namespace Dunveler;
@@ -16,17 +17,6 @@ public static unsafe class Labyrinth
 
     public static void Start(Image imMap)
     {
-        Random randEnv = new();
-        Byte[][] mapStyle =
-        {
-            dungeon_atlas, 
-            mossy_atlas,
-            interworld_atlas,
-            midasplace_atlas,
-            backrooms_atlas,
-        };
-        Image imAtlasMap = LoadImageFromMemory(".png", mapStyle[randEnv.Next(5)]);
-
         cubicmap = LoadTextureFromImage(imMap);
         Mesh mesh = GenMeshCubicmap(imMap, new Vector3( 1.0f, 1.0f, 1.0f ));
         model = LoadModelFromMesh(mesh);
@@ -62,7 +52,7 @@ public static unsafe class Labyrinth
 
     public static void Timer()
     {
-        if (frameCount > GetFPS())
+        if (frameCount > GetFPS() && Pause.isPaused == false)
         {
             frameCount = 0;
             currentTimeSec++;
