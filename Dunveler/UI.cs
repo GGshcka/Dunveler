@@ -12,41 +12,55 @@ namespace Dunveler
         public static Font font = LoadFont("Resources\\Fonts\\dunveler_base_font.ttf");
 
         public static int
-            scale = GameSettings.Default.UIScale;
+            scale = GameSettings.Default.UIScale, 
+            fontSize, invertedScale;
 
         public static float
+            btnSize150 = 150 * scale,
             btnSize125 = 125 * scale,
+            btnSize100 = 100 * scale,
+            btnSize75 = 75 * scale,
             btnSize50 = 50 * scale,
             btnSize25 = 25 * scale,
             spacebetween = 10 * scale,
             btnX = 150 * scale,
-            btnY = screenPercent("Height", 50),
+            btnY = ScreenPercent("Height", 50),
             iconTextureHeight;
+
+        public static bool isMainUINeedToDraw = true;
 
         public static unsafe void Start()
         {
+            //font.baseSize = 6;
             LoadGuiStyleAndSize();
-            GuiSetFont(font);
         }
 
         public static unsafe void LoadGuiStyleAndSize()
         {
+            GuiSetFont(font);
+
             switch (scale)
             {
                 case 1:
                     GuiLoadStyle("Resources\\UI\\guiStyle_FScale-1.rgs");
+                    invertedScale = 3;
                     break;
                 case 2:
                     GuiLoadStyle("Resources\\UI\\guiStyle_FScale-2.rgs");
+                    invertedScale = 2;
                     break;
                 case 3:
                     GuiLoadStyle("Resources\\UI\\guiStyle_FScale-3.rgs");
+                    invertedScale = 1;
                     break;
             }
 
-            GuiSetFont(font);
+            fontSize = font.baseSize; //+ 3 * (scale - 1);
 
+            btnSize150 = 150 * scale;
             btnSize125 = 125 * scale;
+            btnSize100 = 100 * scale;
+            btnSize75 = 75 * scale;
             btnSize50 = 50 * scale;
             btnSize25 = 25 * scale;
             spacebetween = 10 * scale;
@@ -54,7 +68,7 @@ namespace Dunveler
             iconTextureHeight = iconTexture.Height * 0.3f * scale;
         }
 
-        public static float screenPercent(string direction, float percent)
+        public static float ScreenPercent(string direction, float percent)
         {
             switch (direction)
             {

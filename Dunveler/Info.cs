@@ -53,6 +53,6 @@ public static class Info
         }
 
         DrawTextureEx(imgClockTexture, new Vector2(GetScreenWidth() / 2 - (imgClock.Width/2 * (scale*2.5f)), -imgClock.Height * scale), 0, scale*2.5f, Color.LightGray);
-        ZeroElectric.Vinculum.Raylib.DrawTextEx(font, Labyrinth.TimerText, new Vector2(GetScreenWidth() / 2 - ((16 * (int)scale * 2)), 8), (10 * (int)scale * 2), 1, ZeroElectric.Vinculum.Raylib.WHITE);
+        ZeroElectric.Vinculum.Raylib.DrawTextEx(font, Labyrinth.TimerText, new Vector2(GetScreenWidth() / 2 - (16 * scale * 2), 8), 10 * scale * 2 + scale, 1, ZeroElectric.Vinculum.Raylib.WHITE);
     }
 }

@@ -14,22 +14,22 @@ namespace Dunveler
         public static void Draw() {
             if (isPaused == true) 
             {
-                DrawRectangle(0, 0, (int)screenPercent("Width", 100), (int)screenPercent("Height", 100), ColorAlpha(ColorFromHSV(10.71f, 0.549f, 0.1f), 0.65f));
-                DrawRectangle(0, 0, 150 * scale, (int)screenPercent("Height", 100), ColorFromHSV(10.71f, 0.549f, 0.1f));
+                DrawRectangle(0, 0, (int)ScreenPercent("Width", 100), (int)ScreenPercent("Height", 100), ColorAlpha(ColorFromHSV(10.71f, 0.549f, 0.1f), 0.65f));
+                DrawRectangle(0, 0, 150 * scale, (int)ScreenPercent("Height", 100), ColorFromHSV(10.71f, 0.549f, 0.1f));
 
                 if (drawSettings == false)
                 {
-                    if (GuiButton(new Rectangle(btnX - btnSize125 / 2, btnY, btnSize125, btnSize50), mainMenuButtonResume) == 1)
+                    if (GuiButton(new Rectangle(btnX - btnSize125 / 2, btnY, btnSize125, btnSize50), GuiIconText(119, mainMenuButtonResume)) == 1)
                     {
                         isPaused = false;
                         Player.cur = false;
                         DisableCursor();
                     }
-                    if (GuiButton(new Rectangle(btnX - btnSize125 / 2, btnY + btnSize50 + spacebetween, btnSize125, btnSize50), mainMenuButtonSettings) == 1)
+                    if (GuiButton(new Rectangle(btnX - btnSize125 / 2, btnY + btnSize50 + spacebetween, btnSize125, btnSize50), GuiIconText(141, mainMenuButtonSettings)) == 1)
                     {
                         drawSettings = true;
                     }
-                    if (GuiButton(new Rectangle(btnX - btnSize125 / 2, btnY + btnSize50 * 2 + spacebetween * 2, btnSize125, btnSize50), mainMenuButtonMainMenu) == 1)
+                    if (GuiButton(new Rectangle(btnX - btnSize125 / 2, btnY + btnSize50 * 2 + spacebetween * 2, btnSize125, btnSize50), GuiIconText(130, mainMenuButtonMainMenu)) == 1)
                     {
                         isPaused = false;
                         Player.cur = false;

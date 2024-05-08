@@ -5,5 +5,8 @@
     <Setting Name="UIScale" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2</Value>
     </Setting>
+    <Setting Name="Sensitivity" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0.15</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

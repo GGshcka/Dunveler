@@ -16,7 +16,7 @@ public static unsafe class Player
 
     public static Camera3D Camera = new();
 
-    internal static float Sens = 0.15f; //Сенса для мыши от 0.01 до 1;
+    internal static float Sens = GameSettings.Default.Sensitivity; //Сенса для мыши от 0.01 до 1;
     internal static float Speed; //Скорость перемещения;
 
     static Random randEnv = new();
@@ -76,7 +76,7 @@ public static unsafe class Player
         else if (playerCellY >= Labyrinth.cubicmap.Height) playerCellY = Labyrinth.cubicmap.Height - 1;
 
         // Check map collisions using image data and player position
-        // TODO: Improvement: Just check player surrounding cells for collision
+        //TODO*IMPR | Just check player surrounding cells for collision
         if (noclip == false)
         {
             for (int y = 0; y < Labyrinth.cubicmap.Height; y++)

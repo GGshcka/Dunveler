@@ -61,6 +61,15 @@ namespace Dunveler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ADD.
+        /// </summary>
+        internal static string addUserButtonAdd {
+            get {
+                return ResourceManager.GetString("addUserButtonAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] backrooms_atlas {
@@ -244,11 +253,29 @@ namespace Dunveler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ^^^.
+        /// </summary>
+        internal static string mainMenuButtonLeaderboard {
+            get {
+                return ResourceManager.GetString("mainMenuButtonLeaderboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MAIN MENU.
         /// </summary>
         internal static string mainMenuButtonMainMenu {
             get {
                 return ResourceManager.GetString("mainMenuButtonMainMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to +.
+        /// </summary>
+        internal static string mainMenuButtonNewUser {
+            get {
+                return ResourceManager.GetString("mainMenuButtonNewUser", resourceCulture);
             }
         }
         
@@ -315,26 +342,6 @@ namespace Dunveler.Resources {
         internal static byte[] mossy_preview_tile {
             get {
                 object obj = ResourceManager.GetObject("mossy_preview_tile", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] pixelcyr_normal {
-            get {
-                object obj = ResourceManager.GetObject("pixelcyr_normal", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] pointerImg {
-            get {
-                object obj = ResourceManager.GetObject("pointerImg", resourceCulture);
                 return ((byte[])(obj));
             }
         }

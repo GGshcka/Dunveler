@@ -1,21 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <leaderboard-root>
 	<easy>
-		<GGshcka mins="0" sec="36"/>
+		<GGshcka time="00:17"/>
 	</easy>
 
 	<medium>
-		<GGshcka mins="0" sec="39"/>
+		<GGshcka time="00:39"/>
 	</medium>
 
 	<hard>
-		<GGshcka mins="1" sec="20"/>
+		<GGshcka time="01:20"/>
 	</hard>
 
 	<players>
-		<GGshcka/>
-		<GGshchka/>
-		<Torney/>
+		<User/>
 	</players>
 </leaderboard-root>
 

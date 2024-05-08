@@ -50,64 +50,54 @@ namespace Dunveler
             Raylib_cs.Raylib.UnloadImage(previewImage);
         }
 
-        static int subscale;
-
-        public static int usersCount = 0;
+        public static int usersCount = 0, framesCounter = 0;
         static bool editMode = false;
 
         public static unsafe void Draw()
         {
-            float w = btnX, h = 0;
+            float sub = 1, w = btnX, h = 0;
 
-            switch (scale)
-            {
-                case 1:
-                    subscale = 3;
-                    break;
-                case 2:
-                    subscale = 2;
-                    break;
-                case 3:
-                    subscale = 1;
-                    break;
-            }
+            if (Leaderboard.drawLeaderboard == true) sub = 3;
 
             while (true) 
             {
-                Raylib_cs.Raylib.DrawTextureEx(previewTexture, new Vector2(w, h), 0, 2 * subscale, Raylib_cs.Color.White);
-                w += previewTexture.Width * 2 * subscale;
+                Raylib_cs.Raylib.DrawTextureEx(previewTexture, new Vector2(w, h), 0, 2 * scale, Raylib_cs.Color.White);
+                w += previewTexture.Width * 2 * scale;
 
-                if (w >= GetScreenWidth()) { w = btnX; h += previewTexture.Height * 2 * subscale; }
+                if (w >= GetScreenWidth()) { w = btnX; h += previewTexture.Height * 2 * scale; }
 
                 if (h >= GetScreenHeight()) { break; }
             }
 
-            DrawRectangle(0, 0, 150 * scale, (int)screenPercent("Height", 100), ColorFromHSV(10.71f, 0.549f, 0.1f));
+            DrawRectangle(0, 0, 150 * (int)sub * scale, (int)ScreenPercent("Height", 100), ColorFromHSV(10.71f, 0.549f, 0.1f));
 
-            if (drawSettings == false)
+            if (drawSettings == false && drawAddUser == false && Leaderboard.drawLeaderboard == false)
             {
-                DrawRectanglePro(new Rectangle(btnX - btnSize125 / 2 - icon.Width * (0.1f * scale), btnY - btnY / 2 - icon.Height * (0.1f * scale), screenPercent("Width", 100), iconTextureHeight), new Vector2(0, 0), 0, ColorFromHSV(10.71f, 0.549f, 0.1f));
+                DrawRectanglePro(new Rectangle(btnX - btnSize125 / 2 - icon.Width * (0.1f * scale), btnY - btnY / 2 - icon.Height * (0.1f * scale), ScreenPercent("Width", 100), iconTextureHeight), new Vector2(0, 0), 0, ColorFromHSV(10.71f, 0.549f, 0.1f));
                 FullLogoDraw();
-                if (GuiButton(new Rectangle(10, GetScreenHeight() - 10 - btnSize25, btnSize25, btnSize25), "S") == 1) StyleTaker();
-            }
+                if (GuiButton(new Rectangle(10, GetScreenHeight() - 10 - btnSize25, btnSize25, btnSize25), GuiIconText(24, "")) == 1) StyleTaker();
 
-            if (drawSettings == false && drawDifficulty == false)
-            {
-                if (GuiButton(new Rectangle(btnX - btnSize125 / 2, btnY, btnSize125, btnSize50), mainMenuButtonPlay) == 1) { drawDifficulty = true; }
-
-                if (GuiButton(new Rectangle(btnX - btnSize125 / 2, btnY + btnSize50 + spacebetween, btnSize125, btnSize50), mainMenuButtonSettings) == 1) drawSettings = true;
-
-                if (GuiButton(new Rectangle(btnX - btnSize125 / 2, btnY + btnSize50 * 2 + spacebetween * 2, btnSize125, btnSize50), mainMenuButtonExit) == 1) exitWindow = true;
-
-                if (GuiDropdownBox(new Rectangle(GetScreenWidth() - btnSize125 - spacebetween, btnY - btnY / 2 - icon.Height * (0.1f * scale) - (btnSize50 / 2), btnSize125, btnSize50), Leaderboard.usernamesDropdown, ref usersCount, editMode) == 1)
+                if (drawDifficulty == false)
                 {
-                    editMode = !editMode;
-                    if (editMode == false)
+                    if (GuiButton(new Rectangle(btnX - btnSize125 / 2, btnY, btnSize125, btnSize50), GuiIconText(119, mainMenuButtonPlay)) == 1) { drawDifficulty = true; }
+
+                    if (GuiButton(new Rectangle(btnX - btnSize125 / 2, btnY + btnSize50 + spacebetween, btnSize125, btnSize50), GuiIconText(141, mainMenuButtonSettings)) == 1) drawSettings = true;
+
+                    if (GuiButton(new Rectangle(btnX - btnSize125 / 2, btnY + btnSize50 * 2 + spacebetween * 2, btnSize125, btnSize50), GuiIconText(159, mainMenuButtonExit)) == 1) exitWindow = true;
+
+                    if (GuiButton(new Rectangle(GetScreenWidth() - btnSize50 - spacebetween, btnY - btnY / 2 - icon.Height * (0.1f * scale) + iconTextureHeight - (btnSize50 / 2), btnSize50, btnSize50), GuiIconText(150, "")) == 1) drawAddUser = true;
+                    if (GuiButton(new Rectangle(GetScreenWidth() - btnSize100 - spacebetween * 2 - btnSize150 - btnSize50, btnY - btnY / 2 - icon.Height * (0.1f * scale) + iconTextureHeight - (btnSize50 / 2), btnSize100 - spacebetween, btnSize50), GuiIconText(188, "")) == 1) Leaderboard.drawLeaderboard = true;
+
+                    if (GuiDropdownBox(new Rectangle(GetScreenWidth() - btnSize150 - spacebetween * 2 - btnSize50, btnY - btnY / 2 - icon.Height * (0.1f * scale) + iconTextureHeight - (btnSize50 / 2), btnSize150, btnSize50), Leaderboard.usernamesDropdown, ref usersCount, editMode) == 1)
                     {
-                        Player.playername = Leaderboard.usernames[usersCount];
-                        Debug.WriteLine(Player.playername);
+                        editMode = !editMode;
+                        if (editMode == false)
+                        {
+                            Player.playername = Leaderboard.usernames[usersCount];
+                            Debug.WriteLine(Player.playername);
+                        }
                     }
-                }
+                }            
             }
         }
     }

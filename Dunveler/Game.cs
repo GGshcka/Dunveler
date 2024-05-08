@@ -15,7 +15,7 @@ internal static class Game
     public enum GameScreen { Logo = 0, MainMenu, Gameplay, Results }
     public static GameScreen currentScreen = GameScreen.Logo;
 
-    public static bool exitWindow = false, drawSettings = false, drawDifficulty = false;
+    public static bool exitWindow = false, drawSettings = false, drawDifficulty = false, drawAddUser = false;
 
     public static Image icon = LoadImageFromMemory(".png", dunveler_icon), logoText = LoadImageFromMemory(".png", dunveler_logo_text), logoTextShadow = LoadImageFromMemory(".png", dunveler_logo_textshadow);
     public static Texture2D iconTexture, logoTextTexture, logoTextShadowTexture;
@@ -35,12 +35,14 @@ internal static class Game
         SetConfigFlags(ConfigFlags.VSyncHint);
         ToggleFullscreen();
 
+        Music mainMenuSongMusic = LoadMusicStream("Resources\\Sounds\\mainMenuSong.mp3");
+
         iconTexture = LoadTextureFromImage(icon);
         logoTextTexture = LoadTextureFromImage(logoText);
         logoTextShadowTexture = LoadTextureFromImage(logoTextShadow);
 
-        Leaderboard.Get();
-        Leaderboard.UserControler("get");
+        Leaderboard.Start();
+        Leaderboard.UserControler();
         MainMenu.StyleTaker();
         UI.Start();
 
@@ -50,6 +52,8 @@ internal static class Game
         while (!exitWindow)
         {
             if (WindowShouldClose()) exitWindow = true;
+
+            UpdateMusicStream(mainMenuSongMusic); 
 
             switch (currentScreen)
             {
@@ -65,7 +69,9 @@ internal static class Game
                 case GameScreen.MainMenu:
                     if (previousGameScreen != currentScreen)
                     {
+                        PlayMusicStream(mainMenuSongMusic);
                         MainMenu.StyleTaker();
+                        Leaderboard.Get();
                         if (IsCursorHidden() == true) EnableCursor();
                         Difficulty.readyToUse = false;
                         previousGameScreen = GameScreen.MainMenu;
@@ -75,6 +81,7 @@ internal static class Game
                 case GameScreen.Gameplay:
                     if (previousGameScreen != currentScreen)
                     {
+                        StopMusicStream(mainMenuSongMusic);
                         DisableCursor();
                         Info.Start();
                         Labyrinth.TimerClear();
@@ -110,6 +117,8 @@ internal static class Game
                     ClearBackground(Color.Black);
                     MainMenu.Draw();
                     if (drawDifficulty == true) Difficulty.Draw();
+                    if (Leaderboard.drawLeaderboard == true) Leaderboard.Draw();
+                    AddUser.Draw();
                     break;
 
                 case GameScreen.Gameplay:
@@ -133,6 +142,7 @@ internal static class Game
         }
 
         Labyrinth.Unloading();
+        UnloadMusicStream(mainMenuSongMusic);
         CloseAudioDevice();
         CloseWindow();
     }
