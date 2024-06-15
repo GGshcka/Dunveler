@@ -220,10 +220,10 @@ namespace Dunveler
         public static void Sorting(List<float> anFloatList, List<string> anStringList)
         {
             //Основной цикл (количество повторений равно количеству элементов массива)
-            for (int i = 0; i < anFloatList.Count - 1; i++)
+            for (int i = 0; i < anFloatList.Count; i++)
             {
                 //Вложенный цикл (количество повторений, равно количеству элементов массива минус 1 и минус количество выполненных повторений основного цикла)
-                for (int j = 0; j < anFloatList.Count - 2 - i; j++)
+                for (int j = 0; j < anFloatList.Count - 1 - i; j++)
                 {
                     //Если элемент массива с индексом j больше следующего за ним элемента
                     if (anFloatList[j] > anFloatList[j + 1])

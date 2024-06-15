@@ -135,11 +135,14 @@ public static unsafe class Player
                 Camera.Target.Y -= 0.1f;
             }
 
-            if (IsKeyPressed(KeyboardKey.F3)) DebugInfoDraw = !DebugInfoDraw;
             if (IsKeyPressed(KeyboardKey.F1)) InfoDraw = !InfoDraw;
-            if (IsKeyPressed(KeyboardKey.N)) noclip = !noclip;
 
-            if (IsKeyPressed(KeyboardKey.End)) { currentScreen = GameScreen.Results; }
+            if (GameSettings.Default.Cheats == true)
+            {
+                if (IsKeyPressed(KeyboardKey.F3)) DebugInfoDraw = !DebugInfoDraw;
+                if (IsKeyPressed(KeyboardKey.N)) noclip = !noclip;
+                if (IsKeyPressed(KeyboardKey.End)) { currentScreen = GameScreen.Results; }
+            }
 
             Speed = IsKeyDown(KeyboardKey.LeftShift) ? 0.04f : 0.02f;
         }

@@ -46,5 +46,17 @@ namespace Dunveler {
                 this["Sensitivity"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Cheats {
+            get {
+                return ((bool)(this["Cheats"]));
+            }
+            set {
+                this["Cheats"] = value;
+            }
+        }
     }
 }
